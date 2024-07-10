@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details - Al-Sahafi Est</title>
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #003366; /* Blue background color */
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .container {
+            background-color: #fff;
+            color: #333;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 90%;
+            margin: 80px auto 40px; /* Adjusted for fixed header and reduced space */
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/property-background.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.5); /* Adjust opacity if needed */
+            z-index: -1;
+        }
+        
+        .property-name {
+            font-size: 48px;
+            color: #333;
+            text-transform: none;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            margin-top: 10vh; /* Adjusted for smaller space */
+            margin-bottom: 10px; /* Adjusted for smaller space */
+        }
+
+        .property-name .highlight {
+            color: gold;
+        }
+
+        .property-details {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px; /* Adjusted for smaller space */
+            line-height: 1.6;
+        }
+
+        .property-images {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .property-images img {
+            width: 200px; /* Adjust image size */
+            height: auto;
+            margin: 10px;
+            border-radius: 10px;
+            border: 5px solid gold;
+            transition: transform 0.3s ease-out;
+            cursor: pointer;
+        }
+
+        .property-images img:hover {
+            transform: scale(1.1);
+        }
+
+        .back-link {
+            position: fixed;
+            top: 20px;
+            right: 20px; /* Adjusted for top right corner */
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .back-link:hover {
+            background-color: gold;
+            color: #333;
+        }
+
+        .language-switcher {
+            background-color: #d4af37;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+        }
+
+        .language-switcher:hover {
+            background-color: gold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Al-Sahafi Est</div>
+    </header>
+
+    <a href="index.html" class="back-link">Back to Al-Sahafi Est</a>
+
+    <div class="container">
+        <div class="property-name">Ibn Baz</div>
+        <div class="property-details">
+            <p><a href="https://maps.app.goo.gl/U1kG9JoDHUv8zy3E6?g_st=iw" target="_blank" id="googleMapsLink">View on Google Maps</a></p>
+        </div>
+
+        <!-- Placeholder for property images -->
+        <div class="property-images">
+            <img src="images/property3-image1.jpg" alt="Property 3 Image 1">
+            <img src="images/property3-image2.jpg" alt="Property 3 Image 2">
+            <img src="images/property3-image3.jpg" alt="Property 3 Image 3">
+            <img src="images/property3-image4.jpg" alt="Property 3 Image 4">
+            <img src="images/property3-image5.jpg" alt="Property 3 Image 5">
+            <img src="images/property3-image6.jpg" alt="Property 3 Image 6">
+            <img src="images/property3-image7.jpg" alt="Property 3 Image 7">
+            <img src="images/property3-image8.jpg" alt="Property 3 Image 8">
+            <img src="images/property3-image9.jpg" alt="Property 3 Image 9">
+            <img src="images/property3-image10.jpg" alt="Property 3 Image 10">
+            <img src="images/property3-image11.jpg" alt="Property 3 Image 11">
+            <img src="images/property3-image12.jpg" alt="Property 3 Image 12">
+            <!-- Add more images as needed -->
+        </div>
+    </div>
+
+    <div class="language-switcher" id="languageSwitcher" title="Switch Language" role="button">العربية / English</div>
+
+    <script>
+        // JavaScript to toggle language
+        const languageSwitcher = document.getElementById('languageSwitcher');
+        let language = 'english'; // Default language
+
+        languageSwitcher.addEventListener('click', function() {
+            if (language === 'english') {
+                // Switch to Arabic
+                languageSwitcher.textContent = 'English / العربية';
+                language = 'arabic';
+                // Replace English text with Arabic content
+                document.querySelector('.property-name').textContent = 'ابن باز';
+                document.querySelector('.back-link').textContent = ' Al-Sahafi Est العودة إلى ';
+                document.getElementById('googleMapsLink').textContent = 'Google Maps عرض على ';
+            } else {
+                // Switch to English
+                languageSwitcher.textContent = 'العربية / English';
+                language = 'english';
+                // Replace Arabic text with English content
+                document.querySelector('.property-name').textContent = 'Ibn Baz';
+                document.querySelector('.back-link').textContent = 'Back to Al-Sahafi Est';
+                document.getElementById('googleMapsLink').textContent = 'View on Google Maps';
+            }
+        });
+    </script>
+
+</body>
+</html>

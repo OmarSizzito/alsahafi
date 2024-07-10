@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Sahafi Est</title>
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #003366; /* Blue background color */
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: gold;
+            color: #333;
+        }
+        
+        .container {
+            background-color: #fff;
+            color: #333;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 90%;
+            margin: 80px auto 40px; /* Adjusted for fixed header and reduced space */
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/jeddah-background.jpg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.5); /* Adjust opacity if needed */
+            z-index: -1;
+        }
+        
+        .company-logo {
+            width: 150px;
+            height: 150px;
+            border: 8px solid gold;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+        }
+        
+        .company-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .company-name {
+            font-size: 48px;
+            color: #333;
+            text-transform: none;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            margin-top: 10vh; /* Adjusted for smaller space */
+            margin-bottom: 10px; /* Adjusted for smaller space */
+        }
+
+        .company-name .highlight {
+            color: gold;
+        }
+
+        .homes-for-ownership {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px; /* Adjusted for smaller space */
+        }
+
+        .contacts {
+            text-align: left;
+            max-width: 400px;
+            width: 100%;
+            margin: 20px auto;
+        }
+        
+        .contacts p {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+        }
+        
+        .contacts a {
+            text-decoration: none;
+            color: #0073e6;
+            transition: color 0.3s;
+            margin-left: 10px;
+        }
+        
+        .contacts a:hover {
+            color: #005bb5;
+        }
+
+        .contacts img {
+            width: 28px;
+            height: 28px;
+        }
+        
+.background-images {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+}
+.image-link {
+    position: relative; /* Ensure relative positioning for absolute child */
+    display: inline-block;
+    text-align: center;
+    margin-right: 15px;
+    /* Center vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-overlay:hover {
+    opacity: 1;
+}
+
+.more-details-btn {
+    background-color: gold;
+    color: #333;
+    border: none;
+    padding: 15px 30px; /* Adjust padding for larger size */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 18px; /* Increase font size for visibility */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center horizontally and vertically */
+}
+
+.more-details-btn:hover {
+    background-color: #d4af37;
+    left: calc(50% + 5px); /* Move slightly to the right on hover */
+}
+
+.background-images img {
+    width: 70%; /* Adjust to make images bigger */
+    max-width: 400px;
+    height: auto;
+    border: 5px solid gold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease-out;
+    object-fit: cover;
+    margin-left: 40px; /* Increase margin to move images more to the right */
+}
+
+.background-images img:hover {
+    transform: scale(1.05);
+}
+
+
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: auto;
+        }
+
+        .cookie-consent {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 600px;
+            width: 90%;
+        }
+        
+        .cookie-consent button {
+            background-color: gold;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .cookie-consent button:hover {
+            background-color: #d4af37;
+        }
+
+        /* Styles for Offers section */
+        .offer-container {
+            background-color: #fff;
+            color: #333;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 90%;
+            margin: 40px auto;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer-flag {
+            width: 50px;
+            position: absolute;
+            top: 5px; /* Adjust as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .offer-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 15px; /* Adjusted spacing */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 0;
+        }
+
+        .offer-details {
+            font-size: 20px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .offer-images {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .offer-images img {
+            width: 300px;
+            height: auto;
+            margin: 0 10px;
+            border-radius: 10px;
+            border: 5px solid gold;
+            transition: transform 0.3s ease-out;
+            cursor: pointer;
+        }
+
+        .offer-images img:hover {
+            transform: scale(1.1);
+        }
+
+        .language-switcher {
+            position: fixed;
+            top: 20px; /* Change this value as needed */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%);
+            background-color: #d4af37;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+
+        .language-switcher:hover {
+            background-color: gold;
+            color: #333;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Auto-scroll feature on image click
+            const images = document.querySelectorAll('.background-images img');
+            images.forEach((image, index) => {
+                image.addEventListener('click', function () {
+                    images[(index + 1) % images.length].scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+                });
+            });
+
+            // Smooth scroll for navigation links
+            const navLinks = document.querySelectorAll('nav ul li a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            // Cookie consent logic
+            const consent = document.querySelector('.cookie-consent');
+            const consentButton = consent.querySelector('button');
+
+            consentButton.addEventListener('click', function() {
+                consent.style.display = 'none';
+                // Here you can also set a cookie to remember the consent
+                // document.cookie = "cookie_consent=true; max-age=31536000; path=/";
+            });
+
+            // Language switcher logic
+            const switcher = document.querySelector('.language-switcher');
+            const htmlElement = document.querySelector('html');
+
+            switcher.addEventListener('click', function() {
+                if (htmlElement.lang === 'en') {
+                    htmlElement.lang = 'ar';
+                    translateToArabic();
+                } else {
+                    htmlElement.lang = 'en';
+                    translateToEnglish();
+                }
+            });
+
+            function translateToArabic() {
+                const elementsToTranslate = document.querySelectorAll('[data-translation-ar]');
+                elementsToTranslate.forEach(element => {
+                    element.textContent = element.dataset.translationAr;
+                });
+            }
+
+            function translateToEnglish() {
+                const elementsToTranslate = document.querySelectorAll('[data-translation-en]');
+                elementsToTranslate.forEach(element => {
+                    element.textContent = element.dataset.translationEn;
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">Al-Sahafi Est</div>
+        <nav>
+            <ul>
+                <li><a href="#home" data-translation-en="Home" data-translation-ar="الرئيسية">Home</a></li>
+                <li><a href="#properties" data-translation-en="Our Properties" data-translation-ar="ممتلكاتنا">Our Properties</a></li>
+                <li><a href="#contacts" data-translation-en="Contact" data-translation-ar="تواصل معنا">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="language-switcher" title="Switch Language" role="button">العربية / English</div>
+    </header>
+
+    <div class="container" id="home">
+        <div class="company-logo">
+            <img src="images/Company Logo 3.jpg" alt="Al-Sahafi Logo">
+        </div>
+        <div class="company-name">Al-Sahafi <span class="highlight">Est</span></div>
+        <div class="villas-for-ownership" data-translation-en="Villas for ownership" data-translation-ar="فلل للتمليك">Villas for ownership</div>
+    </div>
+
+    <div class="container" id="contacts">
+        <div class="contacts">
+            <p><img src="images/Tiktok.png" alt="TikTok Logo"><a href="https://www.tiktok.com/@alsahafi_" target="_blank" data-translation-en="TikTok Profile" data-translation-ar="ملف TikTok">TikTok Profile</a></p>
+            <p><img src="images/Phone.png" alt="Phone Logo"><a href="tel:0551644338" data-translation-en="Call Us" data-translation-ar="اتصل بنا">Call Us</a></p>
+            <p><img src="images/WhatsApp.png" alt="WhatsApp Logo"><a href="https://wa.me/00966551644338" target="_blank" data-translation-en="WhatsApp Us" data-translation-ar="WhatsApp لنا">WhatsApp Us</a></p>
+        </div>
+    </div>
+
+    <<div class="background-images" id="properties">
+    <a href="property3-details.html" class="image-link">
+        <img src="images/background-image3.jpg" alt="Background Image">
+        <div class="image-overlay">
+            <button class="more-details-btn" data-translation-en="More Details" data-translation-ar="تفاصيل أكثر">More Details</button>
+        </div>
+    </a>
+    <!-- Additional images here -->
+</div>
+
+
+
+
+
+    </div>
+
+       
+
+    <footer>
+        &copy; 2024 Al-Sahafi Est. All rights reserved.
+    </footer>
+
+    <div class="cookie-consent">
+        <p data-translation-en="We use cookies to ensure you get the best experience on our website." data-translation-ar="نحن نستخدم ملفات تعريف الارتباط لضمان أن تحصل على أفضل تجربة على موقعنا.">We use cookies to ensure you get the best experience on our website.</p>
+        <button data-translation-en="Got it!" data-translation-ar="فهمت!">Got it!</button>
+    </div>
+</body>
+</html>         
